@@ -23,7 +23,14 @@
                 background-size: 50px;
                 background-position: 12% 50%;
             }
-            section {
+            #refresh { 
+                background-image: url("http://status.onestaufond.fr/refresh.svg");
+                background-repeat: no-repeat;
+                background-size: 50px;
+                background-position: 1% 50%;
+            }
+            section{ padding-bottom: 5px;}
+            section, #refresh {
                 border: 1px solid black;
                 margin: 10px 0;
                 background-color: #1a1a1a;
@@ -48,12 +55,11 @@
         </style>
     </head>
     <body>
-        <div class="wr-widthcenter wr-width80 wr-fill">
+        <div id="refresh" class="wr-widthcenter wr-width80 wr-fill">
             <div class="wr-width10 wr-txt-center">
-                <img src="refresh.svg">
             </div><!--
          --><div class="wr-width80">
-            <p>30 Minutes</p>
+            <p>Datas refresh every 30 Minutes</p>
             </div>
         </div>
 
@@ -131,6 +137,10 @@
                 </div>
             </div>
         </section>
+
+        <footer>
+            <p class="wr-txt-center">onestaufond.fr &copy; Gyn</p>
+        </footer>
 
         <script>
         function findClass(element, className) {
