@@ -1,0 +1,134 @@
+ <!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Status</title>
+        <link rel="stylesheet" type="text/css" href="wr-easy.css">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
+        <style>
+            body { background-color: #262626; }
+            * { 
+                color : #d3d3d3; 
+                font-family: 'Orbitron', sans-serif;
+            }
+            .percent > div {height: 10px;}
+            .percent.ok > div:first-child { background-color: #b2d582; }
+            .percent.ko > div:first-child { background-color: #ff1f17; }
+            .percent > div:last-child     { background-color: #8b8686; }
+            .none { background-image: url("http://status.onestaufond.fr/none.svg"); }
+            .on   { background-image: url("http://status.onestaufond.fr/on.svg"); }
+            .off  { background-image: url("http://status.onestaufond.fr/off.svg"); }
+            .none, .on, .off {
+                background-repeat: no-repeat;
+                background-size: 50px;
+                background-position: 12% 50%;
+            }
+            section {
+                border: 1px solid black;
+                margin: 10px 0;
+                background-color: #1a1a1a;
+            }
+            section > h1 {
+                background-color: #1e1e1e ;
+                margin: 0;
+                padding: 5px;
+                color: #4ca6ff;
+                border-bottom: 1px solid #4ca6ff;
+            }
+            .under {
+                background-color: #1e1e1e;
+                padding: 5px;
+                color: #b2d582;
+                border: 1px solid #b2d582;
+                list-style: none;
+            }
+            .under * {
+                color: #b2d582;
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Server -->
+        <section class="wr-widthcenter wr-width80">
+            <h1>Server</h1>
+            <div class="wr-fill none">
+                <div class="wr-width30">
+                </div><div class="wr-width70">
+                    <article class="wr-widthcenter wr-width95">
+                        <h2><label for="uptimeserver">Processus</label></h2>
+                        <input class="wr-toggle" type="checkbox" id="uptimeserver" name="listusers">
+                        <p class="wr-totoggle under">21651681</p>
+                        <div class="wr-fill percent ok">
+                            <div class="wr-width0"></div><div class="wr-width100"></div>
+                            0%
+                        </div>
+                    </article>
+
+                    <article class="wr-widthcenter wr-width95">
+                        <h2>Memory</h2>
+                        <div class="wr-fill percent ok">
+                            <div class="wr-width0"></div><div class="wr-width100"></div>
+                            0%
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teamspeak3 -->
+        <section class="wr-widthcenter wr-width80">
+            <h1>Teamspeak 3</h1>
+            <div class="wr-fill none">
+                <div class="wr-width30">
+                </div><div class="wr-width70">
+                    <article class="wr-widthcenter wr-width95">
+                        <h2><label for="uptimets3">Processus</label></h2>
+                        <input class="wr-toggle" type="checkbox" id="uptimets3" name="listusers">
+                        <p class="wr-totoggle under">21651681</p>
+                        <div class="wr-fill percent ok">
+                            <div class="wr-width0"></div><div class="wr-width100"></div>
+                            0%
+                        </div>
+                    </article>
+
+                    <article class="wr-widthcenter wr-width95">
+                        <h2>Memory</h2>
+                        <div class="wr-fill percent ok">
+                            <div class="wr-width0"></div><div class="wr-width100"></div>
+                            0%
+                        </div>
+                    </article>
+
+                   <article class="wr-widthcenter wr-width95">
+                        <h2><label for="listusers">Users</label></h2>
+                        <div class="wr-fill percent ok">
+                            <div class="wr-width10"></div><div class="wr-width90"></div>
+                            2/32
+                        </div>
+                        <input class="wr-toggle" type="checkbox" id="listusers" name="listusers">
+                        <ul class="wr-totoggle under">
+                            <li>-</li>
+                          </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        function getStatus(url){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    return this.responseText;
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+        alert('test');
+        alert(getStatus('http://status.onestaufond.fr/teamspeak3.json'));
+
+</script>
+    </body>
+</html> 
