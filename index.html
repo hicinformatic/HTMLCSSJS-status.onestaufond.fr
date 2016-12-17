@@ -11,7 +11,7 @@
                 color : #d3d3d3; 
                 font-family: 'Orbitron', sans-serif;
             }
-            .percent > div {height: 10px;}
+            .percent > div {height: 25px;}
             .percent.ok > div:first-child { background-color: #b2d582; }
             .percent.ko > div:first-child { background-color: #ff1f17; }
             .percent > div:last-child     { background-color: #8b8686; }
@@ -48,9 +48,17 @@
         </style>
     </head>
     <body>
+        <div class="wr-widthcenter wr-width80 wr-fill">
+            <div class="wr-width10 wr-txt-center">
+                <img src="refresh.svg">
+            </div><!--
+         --><div class="wr-width80">
+            <p>30 Minutes</p>
+            </div>
+        </div>
 
         <!-- Server -->
-        <section class="wr-widthcenter wr-width80">
+        <section id="server" class="wr-widthcenter wr-width80">
             <h1>Server</h1>
             <div class="wr-fill none">
                 <div class="wr-width30">
@@ -58,18 +66,22 @@
                     <article class="wr-widthcenter wr-width95">
                         <h2><label for="uptimeserver">Processus</label></h2>
                         <input class="wr-toggle" type="checkbox" id="uptimeserver" name="listusers">
-                        <p class="wr-totoggle under">21651681</p>
-                        <div class="wr-fill percent ok">
-                            <div class="wr-width0"></div><div class="wr-width100"></div>
-                            0%
+                        <p class="wr-totoggle under uptime">-</p>
+                        <div class="wr-fill">
+                            <div class="wr-width10 wr-txt-center processus">-%</div><!--
+                         --><div class="wr-width90 wr-fill percent procpercent ok">
+                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                            </div>
                         </div>
                     </article>
 
                     <article class="wr-widthcenter wr-width95">
                         <h2>Memory</h2>
-                        <div class="wr-fill percent ok">
-                            <div class="wr-width0"></div><div class="wr-width100"></div>
-                            0%
+                        <div class="wr-fill">
+                            <div class="wr-width10 wr-txt-center memory">-%</div><!--
+                         --><div class="wr-width90 wr-fill percent mempercent ok">
+                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                            </div>
                         </div>
                     </article>
                 </div>
@@ -77,37 +89,43 @@
         </section>
 
         <!-- Teamspeak3 -->
-        <section class="wr-widthcenter wr-width80">
+        <section id="teamspeak3" class="wr-widthcenter wr-width80">
             <h1>Teamspeak 3</h1>
             <div class="wr-fill none">
-                <div class="wr-width30">
-                </div><div class="wr-width70">
+                <div class="wr-width30"></div><!--
+             --><div class="wr-width70">
                     <article class="wr-widthcenter wr-width95">
                         <h2><label for="uptimets3">Processus</label></h2>
                         <input class="wr-toggle" type="checkbox" id="uptimets3" name="listusers">
-                        <p class="wr-totoggle under">21651681</p>
-                        <div class="wr-fill percent ok">
-                            <div class="wr-width0"></div><div class="wr-width100"></div>
-                            0%
+                        <p class="wr-totoggle under uptime">-</p>
+                        <div class="wr-fill">
+                            <div class="wr-width10 wr-txt-center processus">-%</div><!--
+                         --><div class="wr-width90 wr-fill percent procpercent ok">
+                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                            </div>
                         </div>
                     </article>
 
                     <article class="wr-widthcenter wr-width95">
                         <h2>Memory</h2>
-                        <div class="wr-fill percent ok">
-                            <div class="wr-width0"></div><div class="wr-width100"></div>
-                            0%
+                        <div class="wr-fill">
+                            <div class="wr-width10 wr-txt-center memory">-%</div><!--
+                         --><div class="wr-width90 wr-fill percent mempercent ok">
+                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                            </div>
                         </div>
                     </article>
 
                    <article class="wr-widthcenter wr-width95">
                         <h2><label for="listusers">Users</label></h2>
-                        <div class="wr-fill percent ok">
-                            <div class="wr-width10"></div><div class="wr-width90"></div>
-                            2/32
+                        <div class="wr-fill">
+                            <div class="wr-width10 wr-txt-center users">-/32</div><!--
+                            --><div class="wr-width90 wr-fill percent userpercent ok">
+                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                            </div>
                         </div>
                         <input class="wr-toggle" type="checkbox" id="listusers" name="listusers">
-                        <ul class="wr-totoggle under">
+                        <ul class="wr-totoggle under list">
                         </ul>
                     </article>
                 </div>
@@ -115,17 +133,139 @@
         </section>
 
         <script>
-        function getStatus(url){
+        function findClass(element, className) {
+            var foundElement = null, found;
+            function recurse(element, className, found) {
+                for (var i = 0; i < element.childNodes.length && !found; i++) {
+                    var el = element.childNodes[i];
+                    var classes = el.className != undefined? el.className.split(" ") : [];
+                    for (var j = 0, jl = classes.length; j < jl; j++) {
+                        if (classes[j] == className) {
+                            found = true;
+                            foundElement = element.childNodes[i];
+                            break;
+                        }
+                    }
+                    if(found)
+                    break;
+                    recurse(element.childNodes[i], className, found);
+                }
+            }
+            recurse(element, className, false);
+            return foundElement;
+        }
+
+        function nicePercent(id, classN, percent) {
+            var balance;
+            if(percent < 100 ) balance = [95, 5];
+            if(percent < 95 )  balance = [90, 10];
+            if(percent < 90 )  balance = [85, 15];
+            if(percent < 85 )  balance = [80, 20];
+            if(percent < 80 )  balance = [75, 25];
+            if(percent < 75 )  balance = [70, 30];
+            if(percent < 70 )  balance = [65, 35];
+            if(percent < 65 )  balance = [60, 40];
+            if(percent < 60 )  balance = [55, 45];
+            if(percent < 55 )  balance = [50, 50];
+            if(percent < 50 )  balance = [45, 55];
+            if(percent < 45 )  balance = [40, 60];
+            if(percent < 40 )  balance = [35, 65];
+            if(percent < 35 )  balance = [30, 70];
+            if(percent < 30 )  balance = [25, 75];
+            if(percent < 25 )  balance = [20, 80];
+            if(percent < 20 )  balance = [15, 85];
+            if(percent < 15 )  balance = [10, 90];
+            if(percent < 10 )  balance = [5, 95];
+            if(percent < 5 )   balance = [0, 100];
+            el = document.getElementById(id);
+            el = findClass(el, classN);
+            first  = el.getElementsByTagName("div")[0];
+            second = el.getElementsByTagName("div")[1];
+            first.className = 'wr-width' + balance[0];
+            second.className = 'wr-width' + balance[1];
+        }
+
+        function niceUptime(uptime) {
+            var sec_num = parseInt(uptime, 10); // don't forget the second param
+            var hours   = Math.floor(sec_num / 3600);
+            var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+            var seconds = sec_num - (hours * 3600) - (minutes * 60);
+            if (hours   < 10) {hours   = "0"+hours;}
+            if (minutes < 10) {minutes = "0"+minutes;}
+            if (seconds < 10) {seconds = "0"+seconds;}
+            return hours+':'+minutes+':'+seconds;
+        }
+
+        function setProcessus(id, percent) {
+            nicePercent(id, 'procpercent', percent);
+            el = document.getElementById(id);
+            el = findClass(el, 'processus');
+            el.innerHTML = percent + '%';
+        }
+
+        function setUptime(id, uptime) {
+            el = document.getElementById(id);
+            el = findClass(el, 'uptime');
+            el.innerHTML = niceUptime(uptime);
+        }
+
+        function setMemory(id, percent) {
+            el = document.getElementById(id);
+            el = findClass(el, 'memory');
+            el.innerHTML = percent + '%';
+        }
+
+        function setUsers(id, on, nbr) {
+            el = document.getElementById(id);
+            el = findClass(el, 'users');
+            el.innerHTML = nbr + '/' + on;
+        }
+
+        function setList(id, list) {
+            el = document.getElementById(id);
+            el = findClass(el, 'list');
+            var newel;
+            for (var i = 0; i < list.length; i++) {
+                var obj = list[i];
+                var newel = document.createElement('li');
+                newel.innerHTML = obj;
+                el.appendChild(newel);
+            }
+        }
+
+        function setStatus(id, status) {
+            el = document.getElementById(id);
+            el = findClass(el, 'none');
+            el.className = el.className.replace('none', status);
+        }
+
+        function getStatus(url, users){
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    alert(this.responseText);
+                    datas = this.responseText;
+                    datas = JSON.parse(datas);
+                    if (typeof datas.cpu != 'undefined')
+                    setProcessus(url, datas.cpu);
+                    if (typeof datas.uptime != 'undefined')
+                    setUptime(url, datas.uptime);
+                    if (typeof datas.mem != 'undefined')
+                    setMemory(url, datas.mem);
+                    if ( typeof users != 'undefined' && typeof datas.users != 'undefined')
+                    setUsers(url, users, datas.users);
+                    if (typeof datas.list != 'undefined')
+                    setList(url, datas.list.sort());
+                    if (typeof datas.status != 'undefined')
+                    setStatus(url, datas.status);
                 }
             };
-            xhttp.open("GET", url, true);
+            xhttp.open('GET', url + '.json', true);
+            xhttp.setRequestHeader('Content-Type', 'application/json');
+            xhttp.overrideMimeType('application/json');
             xhttp.send();
         }
-        getStatus('teamspeak3.json');
+        getStatus('server');
+        getStatus('teamspeak3', 32);
         </script>
     </body>
 </html> 
