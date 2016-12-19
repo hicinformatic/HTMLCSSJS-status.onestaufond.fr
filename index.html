@@ -220,12 +220,15 @@
         }
 
         function setMemory(id, percent) {
+            nicePercent(id, 'mempercent', percent);
             el = document.getElementById(id);
             el = findClass(el, 'memory');
             el.innerHTML = percent + '%';
         }
 
         function setUsers(id, on, nbr) {
+            percent = ((2/32)*100);
+            nicePercent(id, 'userpercent', percent);
             el = document.getElementById(id);
             el = findClass(el, 'users');
             el.innerHTML = nbr + '/' + on;
