@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="wr-easy.css">
         <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet"> 
         <style>
+        
             body { background-color: #262626; }
             * { 
                 color : #d3d3d3; 
@@ -15,19 +16,23 @@
             .percent.ok > div:first-child { background-color: #b2d582; }
             .percent.ko > div:first-child { background-color: #ff1f17; }
             .percent > div:last-child     { background-color: #8b8686; }
-            .none { background-image: url("http://status.onestaufond.fr/none.svg"); }
-            .on   { background-image: url("http://status.onestaufond.fr/on.svg"); }
-            .off  { background-image: url("http://status.onestaufond.fr/off.svg"); }
+            .none { background-image: url("img/commons/none.svg"); }
+            .on   { background-image: url("img/commons/on.svg"); }
+            .off  { background-image: url("img/commons/off.svg"); }
+            section > h1,
+            section article > h2 {
+                background-repeat: no-repeat;
+                background-position: 99% center;
+            }
+            section#teamspeak3 > h1 { background-image: url("img/logos/teamspeak3.png"); }
+            section#server > h1 { background-image: url("img/logos/server.png"); }
+            section article:first-child > h2 { background-image: url("img/logos/cpu.png"); }
+            section article:last-child > h2 { background-image: url("img/logos/user.png"); }
+            section article:nth-child(even) > h2 { background-image: url("img/logos/memory.png"); }
             .none, .on, .off {
                 background-repeat: no-repeat;
                 background-size: 50px;
                 background-position: 12% 50%;
-            }
-            #refresh { 
-                background-image: url("http://status.onestaufond.fr/refresh.svg");
-                background-repeat: no-repeat;
-                background-size: 50px;
-                background-position: 1% 50%;
             }
             section{ padding-bottom: 5px;}
             section, #refresh {
@@ -55,12 +60,11 @@
         </style>
     </head>
     <body>
-        <div id="refresh" class="wr-widthcenter wr-width80 wr-fill">
-            <div class="wr-width10 wr-txt-center">
-            </div><!--
-         --><div class="wr-width80">
-            <p>Datas refresh every 30 Minutes</p>
-            </div>
+        <div id="refresh">
+            <p class="wr-widthcenter wr-width80 wr-valign-middle">
+                <img src="img/commons/refresh.svg">
+                Datas refresh every 30 Minutes
+            </p>
         </div>
 
         <!-- Server -->
