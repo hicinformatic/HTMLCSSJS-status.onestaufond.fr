@@ -231,7 +231,7 @@
         }
 
         function setUsers(id, on, nbr) {
-            percent = ((2/32)*100);
+            percent = ((nbr/32)*100);
             nicePercent(id, 'userpercent', percent);
             el = document.getElementById(id);
             el = findClass(el, 'users');
