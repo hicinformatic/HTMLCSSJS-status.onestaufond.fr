@@ -22,6 +22,7 @@
             #refresh> p,
             section > h1,
             section article > h2 {
+                padding: 5px 0;
                 background-repeat: no-repeat;
                 background-position: 99% center;
             }
@@ -55,6 +56,7 @@
             .under {
                 background-color: #1e1e1e;
                 padding: 5px;
+                margin: 5px 0;
                 color: #b2d582;
                 border: 1px solid #b2d582;
                 list-style: none;
@@ -66,36 +68,38 @@
     </head>
     <body>
         <div id="refresh">
-            <p class="wr-widthcenter wr-width80 wr-valign-middle">
+            <p class="wr-center80 wr-valign-middle">
                 <img src="img/commons/refresh.svg" alt="Refresh 30 minutes">
                 Data refresh every 30 Minutes
             </p>
         </div>
 
         <!-- Server -->
-        <section id="server" class="wr-widthcenter wr-width80">
+        <section id="server" class="wr-center80">
             <h1>Server</h1>
-            <div class="wr-fill none">
-                <div class="wr-width30">
-                </div><div class="wr-width70">
-                    <article class="wr-widthcenter wr-width95">
+            <div class="wr-display-inline1 none">
+                <div class="wr-width-per30">
+                </div><div class="wr-width-per70">
+                    <article class="wr-center95">
                         <h2><label for="uptimeserver">Processus</label></h2>
-                        <input class="wr-toggle" type="checkbox" id="uptimeserver" name="listusers">
-                        <p class="wr-totoggle under uptime">-</p>
-                        <div class="wr-fill">
+                        <div>
+                            <input class="wr-discover wr-display-none" type="checkbox" id="uptimeserver" name="listusers">
+                            <p class="under uptime">-</p>
+                        </div>
+                        <div class="wr-display-inline1">
                             <div class="wr-width10 wr-txt-center processus">-%</div><!--
-                         --><div class="wr-width90 wr-fill percent procpercent ok">
-                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                         --><div class="wr-width90 wr-display-inline1 percent procpercent ok">
+                                <div class="wr-width-per0"></div><div class="wr-width-per"></div>
                             </div>
                         </div>
                     </article>
 
-                    <article class="wr-widthcenter wr-width95">
+                    <article class="wr-center95">
                         <h2>Memory</h2>
-                        <div class="wr-fill">
+                        <div class="wr-display-inline1">
                             <div class="wr-width10 wr-txt-center memory">-%</div><!--
-                         --><div class="wr-width90 wr-fill percent mempercent ok">
-                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                         --><div class="wr-width90 wr-display-inline1 percent mempercent ok">
+                                <div class="wr-width-per0"></div><div class="wr-width-per"></div>
                             </div>
                         </div>
                     </article>
@@ -104,44 +108,49 @@
         </section>
 
         <!-- Teamspeak3 -->
-        <section id="teamspeak3" class="wr-widthcenter wr-width80">
+        <section id="teamspeak3" class="wr-center80">
             <h1>Teamspeak 3</h1>
-            <div class="wr-fill none">
-                <div class="wr-width30"></div><!--
-             --><div class="wr-width70">
-                    <article class="wr-widthcenter wr-width95">
+            <div class="wr-display-inline1 none">
+                <div class="wr-width-per30"></div><!--
+             --><div class="wr-width-per70">
+                    <article class="wr-center95">
                         <h2><label for="uptimets3">Processus</label></h2>
-                        <input class="wr-toggle" type="checkbox" id="uptimets3" name="listusers">
-                        <p class="wr-totoggle under uptime">-</p>
-                        <div class="wr-fill">
+                        <div>
+                            <input class="wr-discover wr-display-none" type="checkbox" id="uptimets3" name="listusers">
+                            <p class="under uptime">-</p>
+                        </div>
+                        <div class="wr-display-inline1">
                             <div class="wr-width10 wr-txt-center processus">-%</div><!--
-                         --><div class="wr-width90 wr-fill percent procpercent ok">
-                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                         --><div class="wr-width90 wr-display-inline1 percent procpercent ok">
+                                <div class="wr-width-per0"></div><div class="wr-width-per"></div>
                             </div>
                         </div>
                     </article>
 
-                    <article class="wr-widthcenter wr-width95">
+                    <article class="wr-center95">
                         <h2>Memory</h2>
-                        <div class="wr-fill">
+                        <div class="wr-display-inline1">
                             <div class="wr-width10 wr-txt-center memory">-%</div><!--
-                         --><div class="wr-width90 wr-fill percent mempercent ok">
-                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                         --><div class="wr-width90 wr-display-inline1 percent mempercent ok">
+                                <div class="wr-width-per0"></div><div class="wr-width-per"></div>
                             </div>
                         </div>
                     </article>
 
-                   <article class="wr-widthcenter wr-width95">
+                   <article class="wr-center95">
                         <h2><label for="listusers">Users</label></h2>
-                        <div class="wr-fill">
+                        <div class="wr-display-inline1">
                             <div class="wr-width10 wr-txt-center users">-/32</div><!--
-                            --><div class="wr-width90 wr-fill percent userpercent ok">
-                                <div class="wr-width0"></div><div class="wr-width100"></div>
+                         --><div class="wr-width90 wr-display-inline1 percent userpercent ok">
+                                <div class="wr-width-per0"></div><div class="wr-width-per"></div>
                             </div>
                         </div>
-                        <input class="wr-toggle" type="checkbox" id="listusers" name="listusers">
-                        <ul class="wr-totoggle under list">
-                        </ul>
+                        <div>
+                            <input class="wr-discover wr-display-none" type="checkbox" id="listusers" name="listusers">
+                            <ul class="under list">
+                                <li>-</li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -252,6 +261,7 @@
         function setList(id, list) {
             el = document.getElementById(id);
             el = findClass(el, 'list');
+            el.innerHTML = null;
             var newel;
             for (var i = 0; i < list.length; i++) {
                 var obj = list[i];
